@@ -1,0 +1,13 @@
+certifi==2020.12.5
+chardet==3.0.4
+ConsoleMenu==1.0.1
+idna==2.10
+mysql==0.0.2
+mysql-connector-python==8.0.23
+mysqlclient==2.0.3
+protobuf==3.14.0
+PyJWT==1.7.1
+requests==2.24.0
+six==1.15.0
+switcher==0.1.8
+urllib3==1.25.11
