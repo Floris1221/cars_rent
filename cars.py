@@ -1,11 +1,11 @@
 
 class Cars:
-    def __init__(self,exercise):
-        if(exercise==1):
+    def __init__(self,excercse):
+        if(excercse==1):
             self.add_car()
-        elif(exercise==2):
+        elif(excercse==2):
             self.display_car_by_id()
-        elif(exercise==3):
+        elif(excercse==3):
             self.edit_car_by_id()
 
 
@@ -26,15 +26,12 @@ class Cars:
             self.ubezpieczenie = int(input())
         except:
             print("Podano nie poprawne wartości.\n Wciśnij 1 aby ponownie wpisać dane, dowolny inny aby wyjść")
-            try:
-                x = int(input())
-                if(x==1):
-                    self.add_car()
-                else:
-                    pass
+            x = int(input())
+            if(x==1):
+                self.add_car()
+            else:
+                print("Powrót do menu")
 
-            except:
-                print("Podano nie poprawne wartości spróbuj ponownie")
 
 
     def display_car_by_id(self):
@@ -42,13 +39,23 @@ class Cars:
         try:
             self.id = int(input())
         except:
-            print("Podano nie poprawną wartość")
-            self.display_car_by_id()
+            print("Podano nie poprawne wartości.\n Wciśnij 1 aby ponownie wpisać dane, dowolny inny aby wyjść")
+            x = int(input())
+            if (x == 1):
+                self.display_car_by_id()
+            else:
+                print("Powrót do menu")
+
+
 
     def edit_car_by_id(self):
         print("Podaj id samochodu")
         try:
             self.id = int(input())
         except:
-            print("Podano nie poprawną wartość")
-            self.edit_car_by_id()
+            print("Podano nie poprawne wartości.\n Wciśnij 1 aby ponownie wpisać dane, dowolny inny aby wyjść")
+            x = int(input())
+            if (x == 1):
+                self.edit_car_by_id()
+            else:
+                print("Powrót do menu")

@@ -1,5 +1,7 @@
 # import mysql.connector
 from cars import Cars
+from customers import Customer
+from rents import Rent
 
 # db = mysql.connector.connect(host="localhost",user="root",password="",database="samochody")
 #
@@ -37,6 +39,7 @@ def car_menu():
     except:
         print("Podano nie poprawną wartość sprubój ponownie")
         car_menu()
+    car_menu()
 
 
 def customer_menu():
@@ -44,7 +47,19 @@ def customer_menu():
     print("2. Usuń klienta")
     print("3. Edytuj klienta")
     print("4. Wróć")
-    x = int(input())
+    try:
+        y = int(input())
+        if (0 < y < 4):
+            customer = Customer(y)
+        elif (y == 4):
+            menu()
+        else:
+            print("Podano nie poprawną wartość. Spróbuj ponownie")
+            customer_menu()
+    except:
+        print("Podano nie poprawną wartość sprubój ponownie")
+        customer_menu()
+    customer_menu()
 
 
 def rent_menu():
@@ -52,7 +67,19 @@ def rent_menu():
     print("2. Usuń wypożyczenie")
     print("3. Edytuj wypożyczenie")
     print("4. Wróć")
-    x = int(input())
+    try:
+        y = int(input())
+        if (0 < y < 4):
+            rent = Rent(y)
+        elif (y == 4):
+            menu()
+        else:
+            print("Podano nie poprawną wartość. Spróbuj ponownie")
+            rent_menu()
+    except:
+        print("Podano nie poprawną wartość sprubój ponownie")
+        rent_menu()
+    rent_menu()
 
 
 def choice(x):
