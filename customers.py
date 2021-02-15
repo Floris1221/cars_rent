@@ -29,7 +29,7 @@ class Customer:
             self.miasto = input()
             print("Podaj płeć")
             self.plec = input()
-            self.add_customers()
+            self.add_query()
         except:
             print("Podano nie poprawne wartości.\n Wciśnij 1 aby ponownie wpisać dane, dowolny inny aby wyjść")
             x = int(input())
