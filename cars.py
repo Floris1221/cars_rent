@@ -1,3 +1,9 @@
+import mysql.connector
+
+db = mysql.connector.connect(host="localhost",user="root",password="",database="samochody")
+
+mycursor = db.cursor()
+
 
 class Cars:
     def __init__(self,excercse):
@@ -24,6 +30,7 @@ class Cars:
             self.kolor = input()
             print("Podaj ubezpieczenie")
             self.ubezpieczenie = int(input())
+            self.add_query()
         except:
             print("Podano nie poprawne wartości.\n Wciśnij 1 aby ponownie wpisać dane, dowolny inny aby wyjść")
             x = int(input())
@@ -38,6 +45,7 @@ class Cars:
         print("Podaj id samochodu")
         try:
             self.id = int(input())
+            self.display_query()
         except:
             print("Podano nie poprawne wartości.\n Wciśnij 1 aby ponownie wpisać dane, dowolny inny aby wyjść")
             x = int(input())
@@ -45,6 +53,7 @@ class Cars:
                 self.display_car_by_id()
             else:
                 print("Powrót do menu")
+
 
 
 
@@ -59,3 +68,22 @@ class Cars:
                 self.edit_car_by_id()
             else:
                 print("Powrót do menu")
+
+
+    def add_query(self):
+        try:
+            mycursor.execute("INSERT INTO auta (marka,model,przebieg,rocznik,kolor,ubezpieczenie) VALUES (%s,%s,%s,%s,%s,%s)",(self.marka,self.model,self.przebieg,self.rocznik,self.kolor,self.ubezpieczenie))
+            db.commit()
+            print("Dodawanie powiodło się")
+        except Exception as e:
+            print(e)
+
+
+
+    def display_query(self):
+        try:
+            sql_select_query = "SELECT * FROM auta WHERE idauta= %s"
+            mycursor.execute(sql_select_query,(self.id,))
+            print(mycursor.fetchone())
+        except Exception as e:
+            print(e)
