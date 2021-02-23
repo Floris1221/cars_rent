@@ -15,7 +15,7 @@ def menu():
     try:
         x=int(input())
         choice(x)
-    except:
+    except Exception as e:
         print("Podano nie poprawną wartość sprubój ponownie")
         menu()
 
